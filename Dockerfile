@@ -1,6 +1,6 @@
 FROM centos:latest
 
-MAINTAINER "tujuhion" <yanwar.purnama@gmail.com>
+MAINTAINER "tujuhion" <away@7ion.co.id>
 
 ENV container docker
 
@@ -47,9 +47,6 @@ EXPOSE 80
 EXPOSE 443
 EXPOSE 7080
 
-COPY run.sh /usr/bin/
-RUN chmod +x /usr/bin/run.sh
-RUN run.sh
 RUN systemctl enable proftpd
 CMD ["/usr/sbin/init"]
 ENTRYPOINT /usr/local/lsws/bin/lswsctrl start && /etc/init.d/mysql start && /bin/bash
