@@ -1,6 +1,6 @@
 FROM centos:latest
 
-MAINTAINER "tujuhion" <away@7ion.co.id>
+MAINTAINER "tujuhion" <yanwar.purnama@gmail.com>
 
 ENV container docker
 
@@ -36,11 +36,12 @@ RUN rm -f /usr/local/lsws/admin/conf/admin_config.conf
 ADD conf/vhconf.conf /usr/local/lsws/conf/vhosts/defdomain/vhconf.conf
 ADD conf/httpd_config.conf /usr/local/lsws/conf/httpd_config.conf
 ADD conf/admin_config.conf /usr/local/lsws/admin/conf/admin_config.conf
+ADD file/index.php /home/defdomain/html/index.php
 
 RUN chown lsadm:lsadm /usr/local/lsws/conf/vhosts/defdomain/vhconf.conf
 RUN chown lsadm:lsadm /usr/local/lsws/conf/httpd_config.conf
 RUN chown lsadm:lsadm /usr/local/lsws/admin/conf/admin_config.conf
-RUN chown nobody:nobody /home/defdomain/html
+RUN -R chown nobody:nobody /home/defdomain/html/
 
 # make sure firewall
 EXPOSE 21
