@@ -3,7 +3,7 @@
 This Docker will run
 
 - Centos 7
-- Openlitespedd
+- Openlitesped with Php 7.2
 - MariaDB10.2
 - ProFTPD
 
