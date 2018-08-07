@@ -40,6 +40,7 @@ ADD conf/admin_config.conf /usr/local/lsws/admin/conf/admin_config.conf
 RUN chown lsadm:lsadm /usr/local/lsws/conf/vhosts/defdomain/vhconf.conf
 RUN chown lsadm:lsadm /usr/local/lsws/conf/httpd_config.conf
 RUN chown lsadm:lsadm /usr/local/lsws/admin/conf/admin_config.conf
+RUN chown nobody:nobody /home/defdomain/html
 
 # make sure firewall
 EXPOSE 21
