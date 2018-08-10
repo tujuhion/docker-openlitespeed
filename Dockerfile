@@ -7,6 +7,7 @@ ENV container docker
 # UPDATE
 RUN yum -y install epel-release wget certbot openssl
 RUN rpm -ivh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
+RUN wget -O /etc/yum.repos.d/MariaDB.repo https://raw.githubusercontent.com/tujuhion/openlitespeed-centos-autoinstall/master/repo/MariaDB.repo
 RUN yum -y update
 
 #Install Proftpd
@@ -19,7 +20,7 @@ RUN mkdir /home/defdomain/{html,logs}
 RUN touch home/defdomain/logs/access.log
 RUN touch home/defdomain/logs/error.log
 
-RUN yum -y install openlitespeed
+RUN yum -y install openlitespeed MariaDB-client
 
 # Install PHP 72
 RUN yum -y install lsphp72 lsphp72-common lsphp72-mysqlnd lsphp72-process lsphp72-gd lsphp72-mbstring lsphp72-mcrypt lsphp72-opcache lsphp72-bcmath lsphp72-pdo lsphp72-xml lsphp72-json lsphp72-zip lsphp72-xmlrpc lsphp72-pecl-mcrypt
